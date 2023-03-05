@@ -9,7 +9,7 @@
   <mva:VisualBasic.Settings>
     <x:Null />
   </mva:VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>1156,2988</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>1156,2816.8</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>UpdateEmailStatus_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="60">
@@ -79,22 +79,20 @@
       <AssemblyReference>System.ComponentModel.Composition</AssemblyReference>
       <AssemblyReference>NPOI</AssemblyReference>
       <AssemblyReference>System.Data.Entity</AssemblyReference>
-      <AssemblyReference>System.Runtime.WindowsRuntime</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="UpdateEmailStatus" sap:VirtualizedContainerService.HintSize="1166.4,2923.2" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence DisplayName="UpdateEmailStatus" sap:VirtualizedContainerService.HintSize="1166.4,2752" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="x:String" Name="FilterBySubject" />
       <Variable x:TypeArguments="scg:List(snm:MailMessage)" Name="ListOfBouncedEmails" />
       <Variable x:TypeArguments="x:Boolean" Name="EmailBounced" />
-      <Variable x:TypeArguments="x:String" Name="InvoiceNumber" />
     </Sequence.Variables>
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <TryCatch DisplayName="Try Catch - UpdateEmailStatus" sap:VirtualizedContainerService.HintSize="1124.8,2830.4" sap2010:WorkflowViewState.IdRef="TryCatch_1">
+    <TryCatch DisplayName="Try Catch - UpdateEmailStatus" sap:VirtualizedContainerService.HintSize="1124.8,2659.2" sap2010:WorkflowViewState.IdRef="TryCatch_1">
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
           <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -102,7 +100,7 @@
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
       <TryCatch.Try>
-        <Sequence DisplayName="Logic" sap:VirtualizedContainerService.HintSize="1088,2576" sap2010:WorkflowViewState.IdRef="Sequence_8">
+        <Sequence DisplayName="Logic" sap:VirtualizedContainerService.HintSize="1088,2404.8" sap2010:WorkflowViewState.IdRef="Sequence_8">
           <sap:WorkflowViewStateService.ViewState>
             <scg:Dictionary x:TypeArguments="x:String, x:Object">
               <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -111,18 +109,7 @@
           </sap:WorkflowViewStateService.ViewState>
           <ui:LogMessage DisplayName="Log Message for updateemailstatus started execution" sap:VirtualizedContainerService.HintSize="1046.4,92.8" sap2010:WorkflowViewState.IdRef="LogMessage_3" Level="Info" Message="[&quot;UpdateEmailStatus.xaml execution started&quot;]" />
           <ui:LogMessage DisplayName="Log Message for delay" sap:VirtualizedContainerService.HintSize="1046.4,92.8" sap2010:WorkflowViewState.IdRef="LogMessage_4" Level="Info" Message="[&quot;Delay of 10 Min started&quot;]" />
-          <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="1046.4,193.6" sap2010:WorkflowViewState.IdRef="CommentOut_1">
-            <ui:CommentOut.Body>
-              <Sequence DisplayName="Ignored Activities" sap:VirtualizedContainerService.HintSize="241.6,115.2" sap2010:WorkflowViewState.IdRef="Sequence_11">
-                <sap:WorkflowViewStateService.ViewState>
-                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                  </scg:Dictionary>
-                </sap:WorkflowViewStateService.ViewState>
-                <Delay DisplayName="Delay of 10mins to see if any email is bounced" Duration="[TimeSpan.Parse(in_Config(&quot;TenMinsDelay&quot;).ToString)]" sap:VirtualizedContainerService.HintSize="200,22.4" sap2010:WorkflowViewState.IdRef="Delay_1" />
-              </Sequence>
-            </ui:CommentOut.Body>
-          </ui:CommentOut>
+          <Delay DisplayName="Delay of 10mins to see if any email is bounced" Duration="[TimeSpan.Parse(in_Config(&quot;TenMinsDelay&quot;).ToString)]" sap:VirtualizedContainerService.HintSize="1046.4,22.4" sap2010:WorkflowViewState.IdRef="Delay_1" />
           <ui:LogMessage DisplayName="Log Message for end delay" sap:VirtualizedContainerService.HintSize="1046.4,92.8" sap2010:WorkflowViewState.IdRef="LogMessage_5" Level="Info" Message="[&quot;Delay of 10 Min ended&quot;]" />
           <Assign DisplayName="Assign FilterBySubject" sap:VirtualizedContainerService.HintSize="1046.4,60" sap2010:WorkflowViewState.IdRef="Assign_1">
             <Assign.To>
