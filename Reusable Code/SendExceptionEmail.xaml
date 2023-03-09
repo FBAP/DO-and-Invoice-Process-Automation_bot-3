@@ -11,7 +11,7 @@
   <mva:VisualBasic.Settings>
     <x:Null />
   </mva:VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>591.2,1720.8</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>620,1720.8</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>SendExceptionEmail_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="68">
@@ -113,7 +113,7 @@
         <OutArgument x:TypeArguments="x:String">[in_Subject]</OutArgument>
       </Assign.To>
       <Assign.Value>
-        <InArgument x:TypeArguments="x:String">[in_Body.Replace("@TodaysDate", now.ToString("dd-MM-yyyy")).Replace("@ProcessType", io_ProcessType1)]</InArgument>
+        <InArgument x:TypeArguments="x:String">[in_Subject.Replace("@TodaysDate", now.ToString("dd-MM-yyyy")).Replace("@ProcessType", io_ProcessType1)]</InArgument>
       </Assign.Value>
     </Assign>
     <Assign DisplayName="Assign in_Body" sap:VirtualizedContainerService.HintSize="436.8,60" sap2010:WorkflowViewState.IdRef="Assign_1">
