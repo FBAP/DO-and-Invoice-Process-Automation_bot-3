@@ -18,7 +18,7 @@
   <mva:VisualBasic.Settings>
     <x:Null />
   </mva:VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>2700.8,3752.8</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>2330.4,4095.2</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>GetTransactionData_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="40">
@@ -65,7 +65,7 @@
     </scg:List>
   </TextExpression.NamespacesForImplementation>
   <TextExpression.ReferencesForImplementation>
-    <scg:List x:TypeArguments="AssemblyReference" Capacity="78">
+    <scg:List x:TypeArguments="AssemblyReference" Capacity="40">
       <AssemblyReference>System.Activities</AssemblyReference>
       <AssemblyReference>Microsoft.VisualBasic</AssemblyReference>
       <AssemblyReference>mscorlib</AssemblyReference>
@@ -108,7 +108,7 @@
       <AssemblyReference>System.Runtime.WindowsRuntime</AssemblyReference>
     </scg:List>
   </TextExpression.ReferencesForImplementation>
-  <Sequence sap2010:Annotation.AnnotationText="Get a transaction item from a specified source (e.g., Orchestrator queues, spreadsheets, databases, mailboxes or web APIs). &#xA;&#xA;If there are no transaction items remaining, out_TransactionItem is set to Nothing, which leads to the End Process state. &#xA;&#xA;For cases in which there is only a single transaction (i.e., a linear process), use an If activity to check whether the argument in_TransactionNumber has the value 1 (meaning it is the first and only transaction) and assign the transaction item to out_TransactionItem. For any other value of in_TransactionNumber, out_TransactionItem should be set to Nothing.&#xA;&#xA;If there are multiple transactions, use the argument in_TransactionNumber as an index to retrieve the correct transaction to be processed. If there are no more transactions left, it is necessary to set out_TransactionItem to Nothing, thus ending the process." DisplayName="Get Transaction Data" sap:VirtualizedContainerService.HintSize="2711.2,3688" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence sap2010:Annotation.AnnotationText="Get a transaction item from a specified source (e.g., Orchestrator queues, spreadsheets, databases, mailboxes or web APIs). &#xA;&#xA;If there are no transaction items remaining, out_TransactionItem is set to Nothing, which leads to the End Process state. &#xA;&#xA;For cases in which there is only a single transaction (i.e., a linear process), use an If activity to check whether the argument in_TransactionNumber has the value 1 (meaning it is the first and only transaction) and assign the transaction item to out_TransactionItem. For any other value of in_TransactionNumber, out_TransactionItem should be set to Nothing.&#xA;&#xA;If there are multiple transactions, use the argument in_TransactionNumber as an index to retrieve the correct transaction to be processed. If there are no more transactions left, it is necessary to set out_TransactionItem to Nothing, thus ending the process." DisplayName="Get Transaction Data" sap:VirtualizedContainerService.HintSize="2340.8,4030.4" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="x:String" Name="FilterBySubject" />
       <Variable x:TypeArguments="x:String" Name="FilterBySubjectMonthly" />
@@ -120,8 +120,8 @@
         <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <ui:LogMessage DisplayName="Log Message Get Transaction Item" sap:VirtualizedContainerService.HintSize="2669.6,92.8" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Info" Message="[&quot;Get the transaction item&quot;]" />
-    <If Condition="[io_dt_TransactionData is Nothing]" DisplayName="if row count is greater than transaction number Assign transaction datatable to nothing" sap:VirtualizedContainerService.HintSize="2669.6,1735.2" sap2010:WorkflowViewState.IdRef="If_25">
+    <ui:LogMessage DisplayName="Log Message Get Transaction Item" sap:VirtualizedContainerService.HintSize="2299.2,92.8" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Info" Message="[&quot;Get the transaction item&quot;]" />
+    <If Condition="[io_dt_TransactionData is Nothing]" DisplayName="if row count is greater than transaction number Assign transaction datatable to nothing" sap:VirtualizedContainerService.HintSize="2299.2,1735.2" sap2010:WorkflowViewState.IdRef="If_25">
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
           <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -129,7 +129,7 @@
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
       <If.Then>
-        <If Condition="[io_ProcessCounter=0]" DisplayName="If - Check process counter" sap:VirtualizedContainerService.HintSize="1624,1576" sap2010:WorkflowViewState.IdRef="If_34">
+        <If Condition="[io_ProcessCounter=0]" DisplayName="If - Check process counter" sap:VirtualizedContainerService.HintSize="1255.2,1576" sap2010:WorkflowViewState.IdRef="If_34">
           <sap:WorkflowViewStateService.ViewState>
             <scg:Dictionary x:TypeArguments="x:String, x:Object">
               <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -141,6 +141,7 @@
               <sap:WorkflowViewStateService.ViewState>
                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
                   <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                  <x:Boolean x:Key="IsPinned">False</x:Boolean>
                 </scg:Dictionary>
               </sap:WorkflowViewStateService.ViewState>
               <ui:LogMessage DisplayName="If Process is running first time" sap:VirtualizedContainerService.HintSize="969.6,92.8" sap2010:WorkflowViewState.IdRef="LogMessage_33" Level="Info" Message="[&quot;Transaction datatable is empty.&quot;]">
@@ -201,6 +202,7 @@
                             <sap:WorkflowViewStateService.ViewState>
                               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                <x:Boolean x:Key="IsPinned">False</x:Boolean>
                               </scg:Dictionary>
                             </sap:WorkflowViewStateService.ViewState>
                             <ui:LogMessage DisplayName="Log Message - show total no. of processes" sap:VirtualizedContainerService.HintSize="433.6,92.8" sap2010:WorkflowViewState.IdRef="LogMessage_31" Level="Info" Message="[&quot;Total number of processes to run today: &quot;+ io_dt_ScheduleDetailsDT.Rows.Count.ToString]" />
@@ -248,15 +250,15 @@
             </Sequence>
           </If.Then>
           <If.Else>
-            <If Condition="[io_dt_ScheduleDetailsDT.Rows.Count&gt;io_ProcessCounter]" DisplayName="If process counter is less than scheduled details dt" sap:VirtualizedContainerService.HintSize="569,218" sap2010:WorkflowViewState.IdRef="If_35">
+            <If Condition="[io_dt_ScheduleDetailsDT.Rows.Count&gt;io_ProcessCounter]" DisplayName="If process counter is less than scheduled details dt" sap:VirtualizedContainerService.HintSize="200,52.8" sap2010:WorkflowViewState.IdRef="If_35">
               <sap:WorkflowViewStateService.ViewState>
                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                  <x:Boolean x:Key="IsExpanded">False</x:Boolean>
                   <x:Boolean x:Key="IsPinned">False</x:Boolean>
                 </scg:Dictionary>
               </sap:WorkflowViewStateService.ViewState>
               <If.Then>
-                <Assign DisplayName="Assign transacation number" sap:VirtualizedContainerService.HintSize="262,60" sap2010:WorkflowViewState.IdRef="Assign_34">
+                <Assign DisplayName="Assign transacation number" sap:VirtualizedContainerService.HintSize="262.4,60" sap2010:WorkflowViewState.IdRef="Assign_34">
                   <Assign.To>
                     <OutArgument x:TypeArguments="x:Int32">[io_TransactionNumber]</OutArgument>
                   </Assign.To>
@@ -266,7 +268,7 @@
                 </Assign>
               </If.Then>
               <If.Else>
-                <Assign DisplayName="Assign Transaction Item" sap:VirtualizedContainerService.HintSize="262,60" sap2010:WorkflowViewState.IdRef="Assign_35">
+                <Assign DisplayName="Assign Transaction Item" sap:VirtualizedContainerService.HintSize="262.4,60" sap2010:WorkflowViewState.IdRef="Assign_35">
                   <Assign.To>
                     <OutArgument x:TypeArguments="x:String">[out_TransactionItem]</OutArgument>
                   </Assign.To>
@@ -280,7 +282,7 @@
         </If>
       </If.Then>
       <If.Else>
-        <If Condition="[io_TransactionNumber &gt; io_dt_TransactionData.Count]" DisplayName="If processing is done for one process" sap:VirtualizedContainerService.HintSize="1002,982" sap2010:WorkflowViewState.IdRef="If_26">
+        <If Condition="[io_TransactionNumber &gt; io_dt_TransactionData.Count]" DisplayName="If processing is done for one process" sap:VirtualizedContainerService.HintSize="1000,1397.6" sap2010:WorkflowViewState.IdRef="If_26">
           <sap:WorkflowViewStateService.ViewState>
             <scg:Dictionary x:TypeArguments="x:String, x:Object">
               <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -288,13 +290,14 @@
             </scg:Dictionary>
           </sap:WorkflowViewStateService.ViewState>
           <If.Then>
-            <Sequence DisplayName="Assign transaction data to nothing" sap:VirtualizedContainerService.HintSize="653,824" sap2010:WorkflowViewState.IdRef="Sequence_90">
+            <Sequence DisplayName="Assign transaction data to nothing" sap:VirtualizedContainerService.HintSize="652,1238.4" sap2010:WorkflowViewState.IdRef="Sequence_90">
               <sap:WorkflowViewStateService.ViewState>
                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
                   <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                  <x:Boolean x:Key="IsPinned">False</x:Boolean>
                 </scg:Dictionary>
               </sap:WorkflowViewStateService.ViewState>
-              <Assign DisplayName="Assign process counter" sap:VirtualizedContainerService.HintSize="611,60" sap2010:WorkflowViewState.IdRef="Assign_29">
+              <Assign DisplayName="Assign process counter" sap:VirtualizedContainerService.HintSize="610.4,60" sap2010:WorkflowViewState.IdRef="Assign_29">
                 <Assign.To>
                   <OutArgument x:TypeArguments="x:Int32">[io_ProcessCounter]</OutArgument>
                 </Assign.To>
@@ -302,7 +305,7 @@
                   <InArgument x:TypeArguments="x:Int32">[io_ProcessCounter+1]</InArgument>
                 </Assign.Value>
               </Assign>
-              <Switch x:TypeArguments="x:String" DisplayName="Switch - Send report" Expression="[io_ProcessType]" sap:VirtualizedContainerService.HintSize="611,182" sap2010:WorkflowViewState.IdRef="Switch`1_6">
+              <Switch x:TypeArguments="x:String" DisplayName="Switch - Send report" Expression="[io_ProcessType]" sap:VirtualizedContainerService.HintSize="610.4,593.6" sap2010:WorkflowViewState.IdRef="Switch`1_6">
                 <Switch.Default>
                   <ui:LogMessage DisplayName="Default option" sap:VirtualizedContainerService.HintSize="333.6,92.8" sap2010:WorkflowViewState.IdRef="LogMessage_56" Level="Info" Message="[&quot;No process was supposed to run now.&quot;]" />
                 </Switch.Default>
@@ -312,13 +315,13 @@
                     <x:Boolean x:Key="IsPinned">False</x:Boolean>
                   </scg:Dictionary>
                 </sap:WorkflowViewStateService.ViewState>
-                <Sequence x:Key="Daily" DisplayName="Check bounced Emails and send report Daily" sap:VirtualizedContainerService.HintSize="376,356" sap2010:WorkflowViewState.IdRef="Sequence_132">
+                <Sequence x:Key="Daily" DisplayName="Check bounced Emails and send report Daily" sap:VirtualizedContainerService.HintSize="375.2,360" sap2010:WorkflowViewState.IdRef="Sequence_132">
                   <sap:WorkflowViewStateService.ViewState>
                     <scg:Dictionary x:TypeArguments="x:String, x:Object">
                       <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                     </scg:Dictionary>
                   </sap:WorkflowViewStateService.ViewState>
-                  <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Invoke UpdateEmailStatus workflow Daily" sap:VirtualizedContainerService.HintSize="334,112" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_35" UnSafe="False" WorkflowFileName="Outlook\UpdateEmailStatus.xaml">
+                  <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Invoke UpdateEmailStatus workflow Daily" sap:VirtualizedContainerService.HintSize="333.6,113.6" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_35" UnSafe="False" WorkflowFileName="Outlook\UpdateEmailStatus.xaml">
                     <ui:InvokeWorkflowFile.Arguments>
                       <InArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)" x:Key="in_Config">[in_Config]</InArgument>
                       <InOutArgument x:TypeArguments="x:String" x:Key="io_ProcessType1">[io_ProcessType]</InOutArgument>
@@ -327,7 +330,7 @@
                       <InOutArgument x:TypeArguments="x:Int32" x:Key="io_ProcessCounter">[io_ProcessCounter]</InOutArgument>
                     </ui:InvokeWorkflowFile.Arguments>
                   </ui:InvokeWorkflowFile>
-                  <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Invoke SendReport workflow for Daily" sap:VirtualizedContainerService.HintSize="334,112" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_25" UnSafe="False" WorkflowFileName="Reusable Code\SendReport.xaml">
+                  <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Invoke SendReport workflow for Daily" sap:VirtualizedContainerService.HintSize="333.6,113.6" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_25" UnSafe="False" WorkflowFileName="Reusable Code\SendReport.xaml">
                     <ui:InvokeWorkflowFile.Arguments>
                       <InArgument x:TypeArguments="x:String" x:Key="in_ReportBody">[in_Config("ReportBodyDaily").ToString]</InArgument>
                       <InArgument x:TypeArguments="x:String" x:Key="in_ReportSubject">[in_Config("ReportSubjectDaily").ToString]</InArgument>
@@ -338,13 +341,13 @@
                     </ui:InvokeWorkflowFile.Arguments>
                   </ui:InvokeWorkflowFile>
                 </Sequence>
-                <Sequence x:Key="Consolidated" DisplayName="Check bounced Emails and send report Conso" sap:VirtualizedContainerService.HintSize="376,356" sap2010:WorkflowViewState.IdRef="Sequence_133">
+                <Sequence x:Key="Consolidated" DisplayName="Check bounced Emails and send report Conso" sap:VirtualizedContainerService.HintSize="375.2,360" sap2010:WorkflowViewState.IdRef="Sequence_133">
                   <sap:WorkflowViewStateService.ViewState>
                     <scg:Dictionary x:TypeArguments="x:String, x:Object">
                       <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                     </scg:Dictionary>
                   </sap:WorkflowViewStateService.ViewState>
-                  <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Invoke UpdateEmailStatus workflow Consolidated" sap:VirtualizedContainerService.HintSize="334,112" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_36" UnSafe="False" WorkflowFileName="Outlook\UpdateEmailStatus.xaml">
+                  <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Invoke UpdateEmailStatus workflow Consolidated" sap:VirtualizedContainerService.HintSize="333.6,113.6" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_36" UnSafe="False" WorkflowFileName="Outlook\UpdateEmailStatus.xaml">
                     <ui:InvokeWorkflowFile.Arguments>
                       <InArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)" x:Key="in_Config">[in_Config]</InArgument>
                       <InOutArgument x:TypeArguments="x:String" x:Key="io_ProcessType1">[io_ProcessType]</InOutArgument>
@@ -353,7 +356,7 @@
                       <InOutArgument x:TypeArguments="x:Int32" x:Key="io_ProcessCounter">[io_ProcessCounter]</InOutArgument>
                     </ui:InvokeWorkflowFile.Arguments>
                   </ui:InvokeWorkflowFile>
-                  <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Invoke SendReport workflow for consolidated" sap:VirtualizedContainerService.HintSize="334,112" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_26" UnSafe="False" WorkflowFileName="Reusable Code\SendReport.xaml">
+                  <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Invoke SendReport workflow for consolidated" sap:VirtualizedContainerService.HintSize="333.6,113.6" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_26" UnSafe="False" WorkflowFileName="Reusable Code\SendReport.xaml">
                     <ui:InvokeWorkflowFile.Arguments>
                       <InArgument x:TypeArguments="x:String" x:Key="in_ReportBody">[in_Config("ReportBodyConsolidated").ToString]</InArgument>
                       <InArgument x:TypeArguments="x:String" x:Key="in_ReportSubject">[in_Config("ReportSubjectConsolidated").ToString]</InArgument>
@@ -364,13 +367,13 @@
                     </ui:InvokeWorkflowFile.Arguments>
                   </ui:InvokeWorkflowFile>
                 </Sequence>
-                <Sequence x:Key="Monthly" DisplayName="SequCheck bounced Emails and send report Monthly" sap:VirtualizedContainerService.HintSize="376,356" sap2010:WorkflowViewState.IdRef="Sequence_134">
+                <Sequence x:Key="Monthly" DisplayName="SequCheck bounced Emails and send report Monthly" sap:VirtualizedContainerService.HintSize="375.2,360" sap2010:WorkflowViewState.IdRef="Sequence_134">
                   <sap:WorkflowViewStateService.ViewState>
                     <scg:Dictionary x:TypeArguments="x:String, x:Object">
                       <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                     </scg:Dictionary>
                   </sap:WorkflowViewStateService.ViewState>
-                  <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Invoke UpdateEmailStatus workflow" sap:VirtualizedContainerService.HintSize="334,112" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_37" UnSafe="False" WorkflowFileName="Outlook\UpdateEmailStatus.xaml">
+                  <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Invoke UpdateEmailStatus workflow" sap:VirtualizedContainerService.HintSize="333.6,113.6" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_37" UnSafe="False" WorkflowFileName="Outlook\UpdateEmailStatus.xaml">
                     <ui:InvokeWorkflowFile.Arguments>
                       <InArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)" x:Key="in_Config">[in_Config]</InArgument>
                       <InOutArgument x:TypeArguments="x:String" x:Key="io_ProcessType1">[io_ProcessType]</InOutArgument>
@@ -379,7 +382,7 @@
                       <InOutArgument x:TypeArguments="x:Int32" x:Key="io_ProcessCounter">[io_ProcessCounter]</InOutArgument>
                     </ui:InvokeWorkflowFile.Arguments>
                   </ui:InvokeWorkflowFile>
-                  <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Invoke SendReport workflow for Monthly" sap:VirtualizedContainerService.HintSize="334,112" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_27" UnSafe="False" WorkflowFileName="Reusable Code\SendReport.xaml">
+                  <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Invoke SendReport workflow for Monthly" sap:VirtualizedContainerService.HintSize="333.6,113.6" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_27" UnSafe="False" WorkflowFileName="Reusable Code\SendReport.xaml">
                     <ui:InvokeWorkflowFile.Arguments>
                       <InArgument x:TypeArguments="x:String" x:Key="in_ReportBody">[in_Config("ReportBodyMonthly").ToString]</InArgument>
                       <InArgument x:TypeArguments="x:String" x:Key="in_ReportSubject">[in_Config("ReportSubjectMonthly").ToString]</InArgument>
@@ -391,7 +394,7 @@
                   </ui:InvokeWorkflowFile>
                 </Sequence>
               </Switch>
-              <If Condition="[io_dt_ScheduleDetailsDT.Rows.Count&gt;io_ProcessCounter]" DisplayName="check if schedule details DT has rows" sap:VirtualizedContainerService.HintSize="611,410" sap2010:WorkflowViewState.IdRef="If_31">
+              <If Condition="[io_dt_ScheduleDetailsDT.Rows.Count&gt;io_ProcessCounter]" DisplayName="check if schedule details DT has rows" sap:VirtualizedContainerService.HintSize="610.4,412" sap2010:WorkflowViewState.IdRef="If_31">
                 <sap:WorkflowViewStateService.ViewState>
                   <scg:Dictionary x:TypeArguments="x:String, x:Object">
                     <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -399,13 +402,13 @@
                   </scg:Dictionary>
                 </sap:WorkflowViewStateService.ViewState>
                 <If.Then>
-                  <Sequence DisplayName="if Schedule details has more rows to process" sap:VirtualizedContainerService.HintSize="304,252" sap2010:WorkflowViewState.IdRef="Sequence_114">
+                  <Sequence DisplayName="if Schedule details has more rows to process" sap:VirtualizedContainerService.HintSize="304,252.8" sap2010:WorkflowViewState.IdRef="Sequence_114">
                     <sap:WorkflowViewStateService.ViewState>
                       <scg:Dictionary x:TypeArguments="x:String, x:Object">
                         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                       </scg:Dictionary>
                     </sap:WorkflowViewStateService.ViewState>
-                    <Assign DisplayName="Assign transaction DT to nothing" sap:VirtualizedContainerService.HintSize="262,60" sap2010:WorkflowViewState.IdRef="Assign_23">
+                    <Assign DisplayName="Assign transaction DT to nothing" sap:VirtualizedContainerService.HintSize="262.4,60" sap2010:WorkflowViewState.IdRef="Assign_23">
                       <Assign.To>
                         <OutArgument x:TypeArguments="s:String[]">[io_dt_TransactionData]</OutArgument>
                       </Assign.To>
@@ -413,7 +416,7 @@
                         <InArgument x:TypeArguments="s:String[]">[Nothing]</InArgument>
                       </Assign.Value>
                     </Assign>
-                    <Assign DisplayName="Assign - Initialize transaction item to 1" sap:VirtualizedContainerService.HintSize="262,60" sap2010:WorkflowViewState.IdRef="Assign_24">
+                    <Assign DisplayName="Assign - Initialize transaction item to 1" sap:VirtualizedContainerService.HintSize="262.4,60" sap2010:WorkflowViewState.IdRef="Assign_24">
                       <Assign.To>
                         <OutArgument x:TypeArguments="x:Int32">[io_TransactionNumber]</OutArgument>
                       </Assign.To>
@@ -424,7 +427,7 @@
                   </Sequence>
                 </If.Then>
                 <If.Else>
-                  <Assign DisplayName="Assign - Transaction Item to nothing" sap:VirtualizedContainerService.HintSize="262,60" sap2010:WorkflowViewState.IdRef="Assign_32">
+                  <Assign DisplayName="Assign - Transaction Item to nothing" sap:VirtualizedContainerService.HintSize="262.4,60" sap2010:WorkflowViewState.IdRef="Assign_32">
                     <Assign.To>
                       <OutArgument x:TypeArguments="x:String">[out_TransactionItem]</OutArgument>
                     </Assign.To>
@@ -437,13 +440,14 @@
             </Sequence>
           </If.Then>
           <If.Else>
-            <Sequence DisplayName="Assign next item" sap:VirtualizedContainerService.HintSize="304,152" sap2010:WorkflowViewState.IdRef="Sequence_91">
+            <Sequence DisplayName="Assign next item" sap:VirtualizedContainerService.HintSize="304,152.8" sap2010:WorkflowViewState.IdRef="Sequence_91">
               <sap:WorkflowViewStateService.ViewState>
                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
                   <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                  <x:Boolean x:Key="IsPinned">False</x:Boolean>
                 </scg:Dictionary>
               </sap:WorkflowViewStateService.ViewState>
-              <Assign DisplayName="Assign - Transaction Item 1" sap:VirtualizedContainerService.HintSize="262,60" sap2010:WorkflowViewState.IdRef="Assign_33">
+              <Assign DisplayName="Assign - Transaction Item 1" sap:VirtualizedContainerService.HintSize="262.4,60" sap2010:WorkflowViewState.IdRef="Assign_33">
                 <Assign.To>
                   <OutArgument x:TypeArguments="x:String">[out_TransactionItem]</OutArgument>
                 </Assign.To>
@@ -456,16 +460,16 @@
         </If>
       </If.Else>
     </If>
-    <ui:InterruptibleWhile CurrentIndex="{x:Null}" Condition="[io_dt_ScheduleDetailsDT.Rows.Count&gt;io_ProcessCounter and io_dt_TransactionData is Nothing]" DisplayName="While transaction data is nothing" sap:VirtualizedContainerService.HintSize="2669.6,900" sap2010:WorkflowViewState.IdRef="InterruptibleWhile_1">
+    <ui:InterruptibleWhile CurrentIndex="{x:Null}" Condition="[io_dt_ScheduleDetailsDT.Rows.Count&gt;io_ProcessCounter and io_dt_TransactionData is Nothing]" DisplayName="While transaction data is nothing" sap:VirtualizedContainerService.HintSize="2299.2,1242.4" sap2010:WorkflowViewState.IdRef="InterruptibleWhile_1">
       <ui:InterruptibleWhile.Body>
-        <Sequence DisplayName="Run process for each row" sap:VirtualizedContainerService.HintSize="538.4,732.8" sap2010:WorkflowViewState.IdRef="Sequence_84">
+        <Sequence DisplayName="Run process for each row" sap:VirtualizedContainerService.HintSize="606.4,1075.2" sap2010:WorkflowViewState.IdRef="Sequence_84">
           <sap:WorkflowViewStateService.ViewState>
             <scg:Dictionary x:TypeArguments="x:String, x:Object">
               <x:Boolean x:Key="IsExpanded">True</x:Boolean>
               <x:Boolean x:Key="IsPinned">False</x:Boolean>
             </scg:Dictionary>
           </sap:WorkflowViewStateService.ViewState>
-          <Assign DisplayName="Assign which process to run" sap:VirtualizedContainerService.HintSize="496.8,60" sap2010:WorkflowViewState.IdRef="Assign_20">
+          <Assign DisplayName="Assign which process to run" sap:VirtualizedContainerService.HintSize="564.8,60" sap2010:WorkflowViewState.IdRef="Assign_20">
             <Assign.To>
               <OutArgument x:TypeArguments="x:String">[io_ProcessType]</OutArgument>
             </Assign.To>
@@ -473,7 +477,7 @@
               <InArgument x:TypeArguments="x:String">[io_dt_ScheduleDetailsDT.Rows( io_ProcessCounter)("Report_Freq").ToString]</InArgument>
             </Assign.Value>
           </Assign>
-          <Switch x:TypeArguments="x:String" DisplayName="Switch go to current process" Expression="[io_ProcessType]" sap:VirtualizedContainerService.HintSize="496.8,540" sap2010:WorkflowViewState.IdRef="Switch`1_5">
+          <Switch x:TypeArguments="x:String" DisplayName="Switch go to current process" Expression="[io_ProcessType]" sap:VirtualizedContainerService.HintSize="564.8,882.4" sap2010:WorkflowViewState.IdRef="Switch`1_5">
             <Switch.Default>
               <ui:LogMessage DisplayName="If no process is to run" sap:VirtualizedContainerService.HintSize="333.6,92.8" sap2010:WorkflowViewState.IdRef="LogMessage_30" Level="Info" Message="[&quot;No process was supposed to run now.&quot;]" />
             </Switch.Default>
@@ -483,13 +487,13 @@
                 <x:Boolean x:Key="IsPinned">False</x:Boolean>
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
-            <Sequence x:Key="Daily" DisplayName="Get emails from outlook" sap:VirtualizedContainerService.HintSize="375.2,306.4" sap2010:WorkflowViewState.IdRef="Sequence_130">
+            <Sequence x:Key="Daily" DisplayName="Get emails from outlook" sap:VirtualizedContainerService.HintSize="524.8,648.8" sap2010:WorkflowViewState.IdRef="Sequence_130">
               <sap:WorkflowViewStateService.ViewState>
                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
                   <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                 </scg:Dictionary>
               </sap:WorkflowViewStateService.ViewState>
-              <Assign DisplayName="Assign FilterBySubject" sap:VirtualizedContainerService.HintSize="333.6,60" sap2010:WorkflowViewState.IdRef="Assign_36">
+              <Assign DisplayName="Assign FilterBySubject" sap:VirtualizedContainerService.HintSize="483.2,60" sap2010:WorkflowViewState.IdRef="Assign_36">
                 <Assign.To>
                   <OutArgument x:TypeArguments="x:String">[FilterBySubject]</OutArgument>
                 </Assign.To>
@@ -497,39 +501,37 @@
                   <InArgument x:TypeArguments="x:String">["@SQL=urn:schemas:httpmail:subject LIKE '%"+ in_Config("FilterSubjectDaily").ToString+"%'"]</InArgument>
                 </Assign.Value>
               </Assign>
-              <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Invoke GetEmails workflow Daily" sap:VirtualizedContainerService.HintSize="333.6,113.6" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_32" UnSafe="False" WorkflowFileName="Outlook\GetEmails.xaml">
+              <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Invoke GetEmails workflow Daily" sap:VirtualizedContainerService.HintSize="483.2,113.6" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_32" UnSafe="False" WorkflowFileName="Outlook\GetEmails.xaml">
                 <ui:InvokeWorkflowFile.Arguments>
-                  <InArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)" x:Key="in_Config1">
-                    <mva:VisualBasicValue x:TypeArguments="scg:Dictionary(x:String, x:Object)" ExpressionText="in_Config" />
-                  </InArgument>
-                  <InOutArgument x:TypeArguments="x:Int32" x:Key="io_ProcessCounter1">
-                    <mva:VisualBasicReference x:TypeArguments="x:Int32" ExpressionText="io_ProcessCounter" />
-                  </InOutArgument>
-                  <InOutArgument x:TypeArguments="x:String" x:Key="io_ProcessType1">
-                    <mva:VisualBasicReference x:TypeArguments="x:String" ExpressionText="io_ProcessType" />
-                  </InOutArgument>
-                  <InArgument x:TypeArguments="x:String" x:Key="in_FilterBySubject">
-                    <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="FilterBySubject" />
-                  </InArgument>
-                  <InArgument x:TypeArguments="x:String" x:Key="in_exception">
-                    <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="in_Config(&quot;NoEmailsExceptionDaily&quot;).ToString" />
-                  </InArgument>
-                  <InArgument x:TypeArguments="x:String" x:Key="in_FilterSubject">
-                    <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="in_Config(&quot;FilterSubjectDaily&quot;).ToString" />
-                  </InArgument>
-                  <OutArgument x:TypeArguments="s:String[]" x:Key="out_InvoiceNumbers">
-                    <mva:VisualBasicReference x:TypeArguments="s:String[]" ExpressionText="io_dt_TransactionData" />
-                  </OutArgument>
+                  <InArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)" x:Key="in_Config1">[in_Config]</InArgument>
+                  <InOutArgument x:TypeArguments="x:Int32" x:Key="io_ProcessCounter1">[io_ProcessCounter]</InOutArgument>
+                  <InOutArgument x:TypeArguments="x:String" x:Key="io_ProcessType1">[io_ProcessType]</InOutArgument>
+                  <InArgument x:TypeArguments="x:String" x:Key="in_FilterBySubject">[FilterBySubject]</InArgument>
+                  <InArgument x:TypeArguments="x:String" x:Key="in_exception">[in_Config("NoEmailsExceptionDaily").ToString]</InArgument>
+                  <InArgument x:TypeArguments="x:String" x:Key="in_FilterSubject">[in_Config("FilterSubjectDaily").ToString]</InArgument>
+                  <OutArgument x:TypeArguments="s:String[]" x:Key="out_InvoiceNumbers">[io_dt_TransactionData]</OutArgument>
                 </ui:InvokeWorkflowFile.Arguments>
               </ui:InvokeWorkflowFile>
+              <If Condition="[not io_dt_TransactionData is Nothing]" DisplayName="Check if there are invoices to processdaily" sap:VirtualizedContainerService.HintSize="483.2,302.4" sap2010:WorkflowViewState.IdRef="If_37">
+                <If.Then>
+                  <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Invoke CreateOutputFile workflow DAily" sap:VirtualizedContainerService.HintSize="333.6,113.6" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_40" UnSafe="False" WorkflowFileName="Reusable Code\CreateOutputFile.xaml">
+                    <ui:InvokeWorkflowFile.Arguments>
+                      <InArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)" x:Key="in_Config1">[in_Config]</InArgument>
+                      <InArgument x:TypeArguments="x:String" x:Key="in_ProcessType">[io_ProcessType]</InArgument>
+                      <OutArgument x:TypeArguments="x:String" x:Key="out_OutputFile">[io_OutputFileDaily]</OutArgument>
+                      <InArgument x:TypeArguments="s:String[]" x:Key="in_InvoiceNumbers">[io_dt_TransactionData]</InArgument>
+                    </ui:InvokeWorkflowFile.Arguments>
+                  </ui:InvokeWorkflowFile>
+                </If.Then>
+              </If>
             </Sequence>
-            <Sequence x:Key="Consolidated" DisplayName="Get emails from outlook Consolidated" sap:VirtualizedContainerService.HintSize="375.2,306.4" sap2010:WorkflowViewState.IdRef="Sequence_137">
+            <Sequence x:Key="Consolidated" DisplayName="Get emails from outlook Consolidated" sap:VirtualizedContainerService.HintSize="524.8,648.8" sap2010:WorkflowViewState.IdRef="Sequence_137">
               <sap:WorkflowViewStateService.ViewState>
                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
                   <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                 </scg:Dictionary>
               </sap:WorkflowViewStateService.ViewState>
-              <Assign DisplayName="Assign FilterBySubjectConso" sap:VirtualizedContainerService.HintSize="333.6,60" sap2010:WorkflowViewState.IdRef="Assign_37">
+              <Assign DisplayName="Assign FilterBySubjectConso" sap:VirtualizedContainerService.HintSize="483.2,60" sap2010:WorkflowViewState.IdRef="Assign_37">
                 <Assign.To>
                   <OutArgument x:TypeArguments="x:String">[FilterBySubjectConso]</OutArgument>
                 </Assign.To>
@@ -537,39 +539,37 @@
                   <InArgument x:TypeArguments="x:String">["@SQL=urn:schemas:httpmail:subject LIKE '%"+ in_Config("FilterSubjectConso").ToString+"%'"]</InArgument>
                 </Assign.Value>
               </Assign>
-              <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Invoke GetEmails workflow Conso" sap:VirtualizedContainerService.HintSize="333.6,113.6" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_38" UnSafe="False" WorkflowFileName="Outlook\GetEmails.xaml">
+              <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Invoke GetEmails workflow Conso" sap:VirtualizedContainerService.HintSize="483.2,113.6" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_38" UnSafe="False" WorkflowFileName="Outlook\GetEmails.xaml">
                 <ui:InvokeWorkflowFile.Arguments>
-                  <InArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)" x:Key="in_Config1">
-                    <mva:VisualBasicValue x:TypeArguments="scg:Dictionary(x:String, x:Object)" ExpressionText="in_Config" />
-                  </InArgument>
-                  <InOutArgument x:TypeArguments="x:Int32" x:Key="io_ProcessCounter1">
-                    <mva:VisualBasicReference x:TypeArguments="x:Int32" ExpressionText="io_ProcessCounter" />
-                  </InOutArgument>
-                  <InOutArgument x:TypeArguments="x:String" x:Key="io_ProcessType1">
-                    <mva:VisualBasicReference x:TypeArguments="x:String" ExpressionText="io_ProcessType" />
-                  </InOutArgument>
-                  <InArgument x:TypeArguments="x:String" x:Key="in_FilterBySubject">
-                    <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="FilterBySubjectConso" />
-                  </InArgument>
-                  <InArgument x:TypeArguments="x:String" x:Key="in_exception">
-                    <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="in_Config(&quot;NoEmailsExceptionConso&quot;).ToString" />
-                  </InArgument>
-                  <InArgument x:TypeArguments="x:String" x:Key="in_FilterSubject">
-                    <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="in_Config(&quot;FilterSubjectConso&quot;).ToString" />
-                  </InArgument>
-                  <OutArgument x:TypeArguments="s:String[]" x:Key="out_InvoiceNumbers">
-                    <mva:VisualBasicReference x:TypeArguments="s:String[]" ExpressionText="io_dt_TransactionData" />
-                  </OutArgument>
+                  <InArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)" x:Key="in_Config1">[in_Config]</InArgument>
+                  <InOutArgument x:TypeArguments="x:Int32" x:Key="io_ProcessCounter1">[io_ProcessCounter]</InOutArgument>
+                  <InOutArgument x:TypeArguments="x:String" x:Key="io_ProcessType1">[io_ProcessType]</InOutArgument>
+                  <InArgument x:TypeArguments="x:String" x:Key="in_FilterBySubject">[FilterBySubjectConso]</InArgument>
+                  <InArgument x:TypeArguments="x:String" x:Key="in_exception">[in_Config("NoEmailsExceptionConso").ToString]</InArgument>
+                  <InArgument x:TypeArguments="x:String" x:Key="in_FilterSubject">[in_Config("FilterSubjectConso").ToString]</InArgument>
+                  <OutArgument x:TypeArguments="s:String[]" x:Key="out_InvoiceNumbers">[io_dt_TransactionData]</OutArgument>
                 </ui:InvokeWorkflowFile.Arguments>
               </ui:InvokeWorkflowFile>
+              <If Condition="[not io_dt_TransactionData is Nothing]" DisplayName="Check if there are invoices to process consolidated" sap:VirtualizedContainerService.HintSize="483.2,302.4" sap2010:WorkflowViewState.IdRef="If_38">
+                <If.Then>
+                  <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Invoke CreateOutputFile workflow consolidated" sap:VirtualizedContainerService.HintSize="333.6,113.6" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_41" UnSafe="False" WorkflowFileName="Reusable Code\CreateOutputFile.xaml">
+                    <ui:InvokeWorkflowFile.Arguments>
+                      <InArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)" x:Key="in_Config1">[in_Config]</InArgument>
+                      <InArgument x:TypeArguments="x:String" x:Key="in_ProcessType">[io_ProcessType]</InArgument>
+                      <OutArgument x:TypeArguments="x:String" x:Key="out_OutputFile">[io_OutputFileConsolidated]</OutArgument>
+                      <InArgument x:TypeArguments="s:String[]" x:Key="in_InvoiceNumbers">[io_dt_TransactionData]</InArgument>
+                    </ui:InvokeWorkflowFile.Arguments>
+                  </ui:InvokeWorkflowFile>
+                </If.Then>
+              </If>
             </Sequence>
-            <Sequence x:Key="Monthly" DisplayName="Get emails from outlook Monthly" sap:VirtualizedContainerService.HintSize="375.2,306.4" sap2010:WorkflowViewState.IdRef="Sequence_138">
+            <Sequence x:Key="Monthly" DisplayName="Get emails from outlook Monthly" sap:VirtualizedContainerService.HintSize="524.8,648.8" sap2010:WorkflowViewState.IdRef="Sequence_138">
               <sap:WorkflowViewStateService.ViewState>
                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
                   <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                 </scg:Dictionary>
               </sap:WorkflowViewStateService.ViewState>
-              <Assign DisplayName="Assign FilterBySubject Monthly" sap:VirtualizedContainerService.HintSize="333.6,60" sap2010:WorkflowViewState.IdRef="Assign_38">
+              <Assign DisplayName="Assign FilterBySubject Monthly" sap:VirtualizedContainerService.HintSize="483.2,60" sap2010:WorkflowViewState.IdRef="Assign_38">
                 <Assign.To>
                   <OutArgument x:TypeArguments="x:String">[FilterBySubjectMonthly]</OutArgument>
                 </Assign.To>
@@ -577,37 +577,41 @@
                   <InArgument x:TypeArguments="x:String">["@SQL=urn:schemas:httpmail:subject LIKE '%"+ in_Config("FilterSubjectMonthly").ToString+"%'"]</InArgument>
                 </Assign.Value>
               </Assign>
-              <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Invoke GetEmails workflow Monthly" sap:VirtualizedContainerService.HintSize="333.6,113.6" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_39" UnSafe="False" WorkflowFileName="Outlook\GetEmails.xaml">
+              <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Invoke GetEmails workflow Monthly" sap:VirtualizedContainerService.HintSize="483.2,113.6" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_39" UnSafe="False" WorkflowFileName="Outlook\GetEmails.xaml">
                 <ui:InvokeWorkflowFile.Arguments>
-                  <InArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)" x:Key="in_Config1">
-                    <mva:VisualBasicValue x:TypeArguments="scg:Dictionary(x:String, x:Object)" ExpressionText="in_Config" />
-                  </InArgument>
-                  <InOutArgument x:TypeArguments="x:Int32" x:Key="io_ProcessCounter1">
-                    <mva:VisualBasicReference x:TypeArguments="x:Int32" ExpressionText="io_ProcessCounter" />
-                  </InOutArgument>
-                  <InOutArgument x:TypeArguments="x:String" x:Key="io_ProcessType1">
-                    <mva:VisualBasicReference x:TypeArguments="x:String" ExpressionText="io_ProcessType" />
-                  </InOutArgument>
-                  <InArgument x:TypeArguments="x:String" x:Key="in_FilterBySubject">
-                    <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="FilterBySubjectMonthly" />
-                  </InArgument>
-                  <InArgument x:TypeArguments="x:String" x:Key="in_exception">
-                    <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="in_Config(&quot;NoEmailsExceptionMonthly&quot;).ToString" />
-                  </InArgument>
-                  <InArgument x:TypeArguments="x:String" x:Key="in_FilterSubject">
-                    <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="in_Config(&quot;FilterSubjectMonthly&quot;).ToString" />
-                  </InArgument>
-                  <OutArgument x:TypeArguments="s:String[]" x:Key="out_InvoiceNumbers">
-                    <mva:VisualBasicReference x:TypeArguments="s:String[]" ExpressionText="io_dt_TransactionData" />
-                  </OutArgument>
+                  <InArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)" x:Key="in_Config1">[in_Config]</InArgument>
+                  <InOutArgument x:TypeArguments="x:Int32" x:Key="io_ProcessCounter1">[io_ProcessCounter]</InOutArgument>
+                  <InOutArgument x:TypeArguments="x:String" x:Key="io_ProcessType1">[io_ProcessType]</InOutArgument>
+                  <InArgument x:TypeArguments="x:String" x:Key="in_FilterBySubject">[FilterBySubjectMonthly]</InArgument>
+                  <InArgument x:TypeArguments="x:String" x:Key="in_exception">[in_Config("NoEmailsExceptionMonthly").ToString]</InArgument>
+                  <InArgument x:TypeArguments="x:String" x:Key="in_FilterSubject">[in_Config("FilterSubjectMonthly").ToString]</InArgument>
+                  <OutArgument x:TypeArguments="s:String[]" x:Key="out_InvoiceNumbers">[io_dt_TransactionData]</OutArgument>
                 </ui:InvokeWorkflowFile.Arguments>
               </ui:InvokeWorkflowFile>
+              <If Condition="[not io_dt_TransactionData is Nothing]" DisplayName="Check if there are invoices to process monthly" sap:VirtualizedContainerService.HintSize="483.2,302.4" sap2010:WorkflowViewState.IdRef="If_39">
+                <sap:WorkflowViewStateService.ViewState>
+                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                    <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                  </scg:Dictionary>
+                </sap:WorkflowViewStateService.ViewState>
+                <If.Then>
+                  <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Invoke CreateOutputFile workflow Monthly" sap:VirtualizedContainerService.HintSize="333.6,113.6" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_42" UnSafe="False" WorkflowFileName="Reusable Code\CreateOutputFile.xaml">
+                    <ui:InvokeWorkflowFile.Arguments>
+                      <InArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)" x:Key="in_Config1">[in_Config]</InArgument>
+                      <InArgument x:TypeArguments="x:String" x:Key="in_ProcessType">[io_ProcessType]</InArgument>
+                      <OutArgument x:TypeArguments="x:String" x:Key="out_OutputFile">[io_OutputFileMonthly]</OutArgument>
+                      <InArgument x:TypeArguments="s:String[]" x:Key="in_InvoiceNumbers">[io_dt_TransactionData]</InArgument>
+                    </ui:InvokeWorkflowFile.Arguments>
+                  </ui:InvokeWorkflowFile>
+                </If.Then>
+              </If>
             </Sequence>
           </Switch>
         </Sequence>
       </ui:InterruptibleWhile.Body>
     </ui:InterruptibleWhile>
-    <If Condition="[Not io_dt_TransactionData is Nothing]" DisplayName="If transaction data has something" sap:VirtualizedContainerService.HintSize="2669.6,623.2" sap2010:WorkflowViewState.IdRef="If_36">
+    <If Condition="[Not io_dt_TransactionData is Nothing]" DisplayName="If transaction data has something" sap:VirtualizedContainerService.HintSize="2299.2,623.2" sap2010:WorkflowViewState.IdRef="If_36">
       <If.Then>
         <Sequence DisplayName="Assign next transaction number" sap:VirtualizedContainerService.HintSize="524.8,434.4" sap2010:WorkflowViewState.IdRef="Sequence_136">
           <sap:WorkflowViewStateService.ViewState>

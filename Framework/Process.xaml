@@ -4,15 +4,15 @@
     <x:Property sap2010:Annotation.AnnotationText="Dictionary structure to store configuration data of the process (settings, constants and assets)." Name="in_Config" Type="InArgument(scg:Dictionary(x:String, x:Object))" />
     <x:Property Name="io_ProcessType" Type="InOutArgument(x:String)" />
     <x:Property Name="io_TransactionNumber" Type="InOutArgument(x:Int32)" />
-    <x:Property Name="out_OutputFileMonthly" Type="OutArgument(x:String)" />
-    <x:Property Name="out_OutputFileDaily" Type="OutArgument(x:String)" />
     <x:Property Name="out_InvoiceNumberList" Type="OutArgument(scg:List(x:String))" />
-    <x:Property Name="out_OutputFileConsolidated" Type="OutArgument(x:String)" />
+    <x:Property Name="in_OutputFileConsolidated" Type="InArgument(x:String)" />
+    <x:Property Name="in_OutputFileDaily" Type="InArgument(x:String)" />
+    <x:Property Name="in_OutputFileMonthly" Type="InArgument(x:String)" />
   </x:Members>
   <mva:VisualBasic.Settings>
     <x:Null />
   </mva:VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>620,1193.6</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>876,1040</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>ProcessTransaction_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="47">
@@ -111,7 +111,7 @@
       <AssemblyReference>System.Runtime.WindowsRuntime</AssemblyReference>
     </scg:List>
   </TextExpression.ReferencesForImplementation>
-  <Sequence sap2010:Annotation.AnnotationText="This .xaml will add the bounced email Invoice numbers in report ad it will send the emails to customers for approved Invoices for Daily, Consolidated and Monthly scenarios." DisplayName="Process sequence" sap:VirtualizedContainerService.HintSize="538.4,1128.8" sap2010:WorkflowViewState.IdRef="Sequence_86">
+  <Sequence sap2010:Annotation.AnnotationText="This .xaml will add the bounced email Invoice numbers in report ad it will send the emails to customers for approved Invoices for Daily, Consolidated and Monthly scenarios." DisplayName="Process sequence" sap:VirtualizedContainerService.HintSize="538.4,975.2" sap2010:WorkflowViewState.IdRef="Sequence_86">
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -120,26 +120,19 @@
     </sap:WorkflowViewStateService.ViewState>
     <ui:LogMessage DisplayName="Log Message Process Start" sap:VirtualizedContainerService.HintSize="496.8,92.8" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Info" Message="[&quot;Started Process&quot;]" />
     <ui:LogMessage DisplayName="Log Message - processing " sap:VirtualizedContainerService.HintSize="496.8,92.8" sap2010:WorkflowViewState.IdRef="LogMessage_36" Level="Info" Message="[&quot;Processing for: &quot;+ io_ProcessType.ToString]" />
-    <Switch x:TypeArguments="x:String" DisplayName="Switch for process type" Expression="[io_ProcessType]" sap:VirtualizedContainerService.HintSize="496.8,593.6" sap2010:WorkflowViewState.IdRef="Switch`1_2">
+    <Switch x:TypeArguments="x:String" DisplayName="Switch for process type" Expression="[io_ProcessType]" sap:VirtualizedContainerService.HintSize="496.8,440" sap2010:WorkflowViewState.IdRef="Switch`1_2">
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
           <x:Boolean x:Key="IsExpanded">True</x:Boolean>
           <x:Boolean x:Key="IsPinned">False</x:Boolean>
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
-      <Sequence x:Key="Daily" DisplayName="Daily Processing" sap:VirtualizedContainerService.HintSize="377.6,360" sap2010:WorkflowViewState.IdRef="Sequence_87">
+      <Sequence x:Key="Daily" DisplayName="Daily Processing" sap:VirtualizedContainerService.HintSize="377.6,206.4" sap2010:WorkflowViewState.IdRef="Sequence_87">
         <sap:WorkflowViewStateService.ViewState>
           <scg:Dictionary x:TypeArguments="x:String, x:Object">
             <x:Boolean x:Key="IsExpanded">True</x:Boolean>
           </scg:Dictionary>
         </sap:WorkflowViewStateService.ViewState>
-        <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Invoke CreateOutputFile workflow DAily" sap:VirtualizedContainerService.HintSize="336,113.6" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_2" UnSafe="False" WorkflowFileName="Reusable Code\CreateOutputFile.xaml">
-          <ui:InvokeWorkflowFile.Arguments>
-            <InArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)" x:Key="in_Config1">[in_Config]</InArgument>
-            <InArgument x:TypeArguments="x:String" x:Key="in_ProcessType">[io_ProcessType]</InArgument>
-            <OutArgument x:TypeArguments="x:String" x:Key="out_OutputFile">[out_OutputFileDaily]</OutArgument>
-          </ui:InvokeWorkflowFile.Arguments>
-        </ui:InvokeWorkflowFile>
         <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Invoke DailyProcess workflow" sap:VirtualizedContainerService.HintSize="336,113.6" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_7" UnSafe="False" WorkflowFileName="Outlook\CheckInvoiceNumbersProcess.xaml">
           <ui:InvokeWorkflowFile.Arguments>
             <InArgument x:TypeArguments="x:String" x:Key="in_TransactionItem1">
@@ -158,7 +151,7 @@
               <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="in_Config(&quot;FilterSubjectDaily&quot;).ToString" />
             </InArgument>
             <InOutArgument x:TypeArguments="x:String" x:Key="io_OutputFile">
-              <mva:VisualBasicReference x:TypeArguments="x:String" ExpressionText="out_OutputFileDaily" />
+              <mva:VisualBasicReference x:TypeArguments="x:String" ExpressionText="in_OutputFileDaily" />
             </InOutArgument>
             <OutArgument x:TypeArguments="scg:List(x:String)" x:Key="out_InvoiceNumberList">
               <mva:VisualBasicReference x:TypeArguments="scg:List(x:String)" ExpressionText="out_InvoiceNumberList" />
@@ -166,19 +159,12 @@
           </ui:InvokeWorkflowFile.Arguments>
         </ui:InvokeWorkflowFile>
       </Sequence>
-      <Sequence x:Key="Consolidated" DisplayName="Consolidated Processing" sap:VirtualizedContainerService.HintSize="377.6,360" sap2010:WorkflowViewState.IdRef="Sequence_103">
+      <Sequence x:Key="Consolidated" DisplayName="Consolidated Processing" sap:VirtualizedContainerService.HintSize="377.6,206.4" sap2010:WorkflowViewState.IdRef="Sequence_103">
         <sap:WorkflowViewStateService.ViewState>
           <scg:Dictionary x:TypeArguments="x:String, x:Object">
             <x:Boolean x:Key="IsExpanded">True</x:Boolean>
           </scg:Dictionary>
         </sap:WorkflowViewStateService.ViewState>
-        <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Invoke CreateOutputFile workflow Consolidated" sap:VirtualizedContainerService.HintSize="336,113.6" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_3" UnSafe="False" WorkflowFileName="Reusable Code\CreateOutputFile.xaml">
-          <ui:InvokeWorkflowFile.Arguments>
-            <InArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)" x:Key="in_Config1">[in_Config]</InArgument>
-            <InArgument x:TypeArguments="x:String" x:Key="in_ProcessType">[io_ProcessType]</InArgument>
-            <OutArgument x:TypeArguments="x:String" x:Key="out_OutputFile">[out_OutputFileConsolidated]</OutArgument>
-          </ui:InvokeWorkflowFile.Arguments>
-        </ui:InvokeWorkflowFile>
         <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Invoke DailyProcess workflow Consolidated" sap:VirtualizedContainerService.HintSize="336,113.6" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_10" UnSafe="False" WorkflowFileName="Outlook\CheckInvoiceNumbersProcess.xaml">
           <ui:InvokeWorkflowFile.Arguments>
             <InArgument x:TypeArguments="x:String" x:Key="in_TransactionItem1">[in_TransactionItem]</InArgument>
@@ -186,24 +172,17 @@
             <InOutArgument x:TypeArguments="x:String" x:Key="io_ProcessType1">[io_ProcessType]</InOutArgument>
             <InOutArgument x:TypeArguments="x:Int32" x:Key="io_TransactionNumber1">[io_TransactionNumber]</InOutArgument>
             <InArgument x:TypeArguments="x:String" x:Key="in_FilterSubject">[in_Config("FilterSubjectConso").ToString]</InArgument>
-            <InOutArgument x:TypeArguments="x:String" x:Key="io_OutputFile">[out_OutputFileConsolidated]</InOutArgument>
+            <InOutArgument x:TypeArguments="x:String" x:Key="io_OutputFile">[in_OutputFileConsolidated]</InOutArgument>
             <OutArgument x:TypeArguments="scg:List(x:String)" x:Key="out_InvoiceNumberList">[out_InvoiceNumberList]</OutArgument>
           </ui:InvokeWorkflowFile.Arguments>
         </ui:InvokeWorkflowFile>
       </Sequence>
-      <Sequence x:Key="Monthly" DisplayName="Monthly Processing" sap:VirtualizedContainerService.HintSize="377.6,360" sap2010:WorkflowViewState.IdRef="Sequence_109">
+      <Sequence x:Key="Monthly" DisplayName="Monthly Processing" sap:VirtualizedContainerService.HintSize="377.6,206.4" sap2010:WorkflowViewState.IdRef="Sequence_109">
         <sap:WorkflowViewStateService.ViewState>
           <scg:Dictionary x:TypeArguments="x:String, x:Object">
             <x:Boolean x:Key="IsExpanded">True</x:Boolean>
           </scg:Dictionary>
         </sap:WorkflowViewStateService.ViewState>
-        <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Invoke CreateOutputFile workflow Monthly" sap:VirtualizedContainerService.HintSize="336,113.6" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_5" UnSafe="False" WorkflowFileName="Reusable Code\CreateOutputFile.xaml">
-          <ui:InvokeWorkflowFile.Arguments>
-            <InArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)" x:Key="in_Config1">[in_Config]</InArgument>
-            <InArgument x:TypeArguments="x:String" x:Key="in_ProcessType">[io_ProcessType]</InArgument>
-            <OutArgument x:TypeArguments="x:String" x:Key="out_OutputFile">[out_OutputFileMonthly]</OutArgument>
-          </ui:InvokeWorkflowFile.Arguments>
-        </ui:InvokeWorkflowFile>
         <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Invoke Monthly Process workflow Monthly" sap:VirtualizedContainerService.HintSize="336,113.6" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_11" UnSafe="False" WorkflowFileName="Outlook\CheckInvoiceNumbersProcess.xaml">
           <ui:InvokeWorkflowFile.Arguments>
             <InArgument x:TypeArguments="x:String" x:Key="in_TransactionItem1">[in_TransactionItem]</InArgument>
@@ -211,7 +190,7 @@
             <InOutArgument x:TypeArguments="x:String" x:Key="io_ProcessType1">[io_ProcessType]</InOutArgument>
             <InOutArgument x:TypeArguments="x:Int32" x:Key="io_TransactionNumber1">[io_TransactionNumber]</InOutArgument>
             <InArgument x:TypeArguments="x:String" x:Key="in_FilterSubject">[in_Config("FilterSubjectMonthly").ToString]</InArgument>
-            <InOutArgument x:TypeArguments="x:String" x:Key="io_OutputFile">[out_OutputFileMonthly]</InOutArgument>
+            <InOutArgument x:TypeArguments="x:String" x:Key="io_OutputFile">[in_OutputFileMonthly]</InOutArgument>
             <OutArgument x:TypeArguments="scg:List(x:String)" x:Key="out_InvoiceNumberList">[out_InvoiceNumberList]</OutArgument>
           </ui:InvokeWorkflowFile.Arguments>
         </ui:InvokeWorkflowFile>

@@ -1,16 +1,17 @@
-<Activity mc:Ignorable="sap sap2010" x:Class="CreateMasterOutputFile" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities" xmlns:s="clr-namespace:System;assembly=mscorlib" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=mscorlib" xmlns:sd="clr-namespace:System.Data;assembly=System.Data" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+<Activity mc:Ignorable="sap sap2010" x:Class="CreateMasterOutputFile" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities" xmlns:s="clr-namespace:System;assembly=mscorlib" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:sd="clr-namespace:System.Data;assembly=System.Data" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
   <x:Members>
     <x:Property Name="in_Config1" Type="InArgument(scg:Dictionary(x:String, x:Object))" />
     <x:Property Name="in_ProcessType" Type="InArgument(x:String)" />
     <x:Property Name="out_OutputFile" Type="OutArgument(x:String)" />
+    <x:Property Name="in_InvoiceNumbers" Type="InArgument(s:String[])" />
   </x:Members>
   <mva:VisualBasic.Settings>
     <x:Null />
   </mva:VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>1004,1336.8</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>1079.2,2003.2</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>CreateMasterOutputFile_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
-    <scg:List x:TypeArguments="x:String" Capacity="64">
+    <scg:List x:TypeArguments="x:String" Capacity="33">
       <x:String>System.Activities</x:String>
       <x:String>System.Activities.Statements</x:String>
       <x:String>System.Activities.Expressions</x:String>
@@ -47,7 +48,7 @@
     </scg:List>
   </TextExpression.NamespacesForImplementation>
   <TextExpression.ReferencesForImplementation>
-    <sco:Collection x:TypeArguments="AssemblyReference">
+    <scg:List x:TypeArguments="AssemblyReference" Capacity="34">
       <AssemblyReference>System.Activities</AssemblyReference>
       <AssemblyReference>Microsoft.VisualBasic</AssemblyReference>
       <AssemblyReference>mscorlib</AssemblyReference>
@@ -81,18 +82,18 @@
       <AssemblyReference>NPOI</AssemblyReference>
       <AssemblyReference>UiPath.System.Activities.Design</AssemblyReference>
       <AssemblyReference>System.Data.Entity</AssemblyReference>
-    </sco:Collection>
+    </scg:List>
   </TextExpression.ReferencesForImplementation>
-  <Sequence sap2010:Annotation.AnnotationText="This will create status report output file for the bot for respective processes" DisplayName="Create Output file" sap:VirtualizedContainerService.HintSize="1014.4,1272" sap2010:WorkflowViewState.IdRef="Sequence_9">
+  <Sequence sap2010:Annotation.AnnotationText="This will create status report output file for the bot for respective processes" DisplayName="Create Output file" sap:VirtualizedContainerService.HintSize="1089.6,1938.4" sap2010:WorkflowViewState.IdRef="Sequence_9">
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
         <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <TryCatch DisplayName="Try Catch for output file" sap:VirtualizedContainerService.HintSize="972.8,1148" sap2010:WorkflowViewState.IdRef="TryCatch_1">
+    <TryCatch DisplayName="Try Catch for output file" sap:VirtualizedContainerService.HintSize="1048,1814.4" sap2010:WorkflowViewState.IdRef="TryCatch_1">
       <TryCatch.Try>
-        <Sequence DisplayName="CreateOutputFile" sap:VirtualizedContainerService.HintSize="936,916.8" sap2010:WorkflowViewState.IdRef="Sequence_8">
+        <Sequence DisplayName="CreateOutputFile" sap:VirtualizedContainerService.HintSize="1011.2,1583.2" sap2010:WorkflowViewState.IdRef="Sequence_8">
           <Sequence.Variables>
             <Variable x:TypeArguments="x:Boolean" Name="OutputFileDailyExists" />
           </Sequence.Variables>
@@ -102,7 +103,7 @@
               <x:Boolean x:Key="IsPinned">False</x:Boolean>
             </scg:Dictionary>
           </sap:WorkflowViewStateService.ViewState>
-          <Assign DisplayName="Assign output file name" sap:VirtualizedContainerService.HintSize="894.4,60" sap2010:WorkflowViewState.IdRef="Assign_3">
+          <Assign DisplayName="Assign output file name" sap:VirtualizedContainerService.HintSize="969.6,60" sap2010:WorkflowViewState.IdRef="Assign_3">
             <Assign.To>
               <OutArgument x:TypeArguments="x:String">[out_OutputFile]</OutArgument>
             </Assign.To>
@@ -110,8 +111,8 @@
               <InArgument x:TypeArguments="x:String">[String.Join("\",in_Config1("OutputFolderPath").ToString+ in_ProcessType,in_ProcessType+"_StatusReport_"+Now.ToString("dd-MM-yyyy-hh-mm")+".xlsx")]</InArgument>
             </Assign.Value>
           </Assign>
-          <ui:FileExistsX DisplayName="File Exists -output" Exists="[OutputFileDailyExists]" sap:VirtualizedContainerService.HintSize="894.4,134.4" sap2010:WorkflowViewState.IdRef="FileExistsX_2" Path="[out_OutputFile]" />
-          <If Condition="[OutputFileDailyExists]" DisplayName="If file exists" sap:VirtualizedContainerService.HintSize="894.4,549.6" sap2010:WorkflowViewState.IdRef="If_2">
+          <ui:FileExistsX DisplayName="File Exists -output" Exists="[OutputFileDailyExists]" sap:VirtualizedContainerService.HintSize="969.6,134.4" sap2010:WorkflowViewState.IdRef="FileExistsX_2" Path="[out_OutputFile]" />
+          <If Condition="[OutputFileDailyExists]" DisplayName="If file exists" sap:VirtualizedContainerService.HintSize="969.6,1216" sap2010:WorkflowViewState.IdRef="If_2">
             <If.Then>
               <Sequence DisplayName="log message for existance of file" sap:VirtualizedContainerService.HintSize="375.2,185.6" sap2010:WorkflowViewState.IdRef="Sequence_6">
                 <sap:WorkflowViewStateService.ViewState>
@@ -123,7 +124,7 @@
               </Sequence>
             </If.Then>
             <If.Else>
-              <Sequence DisplayName="create the file with required folders" sap:VirtualizedContainerService.HintSize="475.2,390.4" sap2010:WorkflowViewState.IdRef="Sequence_7">
+              <Sequence DisplayName="create the file with required folders" sap:VirtualizedContainerService.HintSize="550.4,1056.8" sap2010:WorkflowViewState.IdRef="Sequence_7">
                 <Sequence.Variables>
                   <Variable x:TypeArguments="sd:DataTable" Name="dt_OutputFormat" />
                 </Sequence.Variables>
@@ -132,14 +133,50 @@
                     <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                   </scg:Dictionary>
                 </sap:WorkflowViewStateService.ViewState>
-                <ui:BuildDataTable DataTable="[dt_OutputFormat]" DisplayName="Build Data Table for output format" sap:VirtualizedContainerService.HintSize="433.6,60" sap2010:WorkflowViewState.IdRef="BuildDataTable_2" TableInfo="&lt;NewDataSet&gt;&#xD;&#xA;  &lt;xs:schema id=&quot;NewDataSet&quot; xmlns=&quot;&quot; xmlns:xs=&quot;http://www.w3.org/2001/XMLSchema&quot; xmlns:msdata=&quot;urn:schemas-microsoft-com:xml-msdata&quot;&gt;&#xD;&#xA;    &lt;xs:element name=&quot;NewDataSet&quot; msdata:IsDataSet=&quot;true&quot; msdata:MainDataTable=&quot;TableName&quot; msdata:UseCurrentLocale=&quot;true&quot;&gt;&#xD;&#xA;      &lt;xs:complexType&gt;&#xD;&#xA;        &lt;xs:choice minOccurs=&quot;0&quot; maxOccurs=&quot;unbounded&quot;&gt;&#xD;&#xA;          &lt;xs:element name=&quot;TableName&quot;&gt;&#xD;&#xA;            &lt;xs:complexType&gt;&#xD;&#xA;              &lt;xs:sequence&gt;&#xD;&#xA;                &lt;xs:element name=&quot;Frequency&quot; msdata:Caption=&quot;&quot; minOccurs=&quot;0&quot;&gt;&#xD;&#xA;                  &lt;xs:simpleType&gt;&#xD;&#xA;                    &lt;xs:restriction base=&quot;xs:string&quot;&gt;&#xD;&#xA;                      &lt;xs:maxLength value=&quot;100&quot; /&gt;&#xD;&#xA;                    &lt;/xs:restriction&gt;&#xD;&#xA;                  &lt;/xs:simpleType&gt;&#xD;&#xA;                &lt;/xs:element&gt;&#xD;&#xA;                &lt;xs:element name=&quot;Invoice_x0020_Number&quot; msdata:Caption=&quot;&quot; minOccurs=&quot;0&quot;&gt;&#xD;&#xA;                  &lt;xs:simpleType&gt;&#xD;&#xA;                    &lt;xs:restriction base=&quot;xs:string&quot;&gt;&#xD;&#xA;                      &lt;xs:maxLength value=&quot;100&quot; /&gt;&#xD;&#xA;                    &lt;/xs:restriction&gt;&#xD;&#xA;                  &lt;/xs:simpleType&gt;&#xD;&#xA;                &lt;/xs:element&gt;&#xD;&#xA;                &lt;xs:element name=&quot;Bounced_x0020_Status&quot; msdata:Caption=&quot;&quot; minOccurs=&quot;0&quot;&gt;&#xD;&#xA;                  &lt;xs:simpleType&gt;&#xD;&#xA;                    &lt;xs:restriction base=&quot;xs:string&quot;&gt;&#xD;&#xA;                      &lt;xs:maxLength value=&quot;100&quot; /&gt;&#xD;&#xA;                    &lt;/xs:restriction&gt;&#xD;&#xA;                  &lt;/xs:simpleType&gt;&#xD;&#xA;                &lt;/xs:element&gt;&#xD;&#xA;                &lt;xs:element name=&quot;Email_x0020_Sent_x0020_to_x0020_Customer&quot; msdata:Caption=&quot;&quot; minOccurs=&quot;0&quot;&gt;&#xD;&#xA;                  &lt;xs:simpleType&gt;&#xD;&#xA;                    &lt;xs:restriction base=&quot;xs:string&quot;&gt;&#xD;&#xA;                      &lt;xs:maxLength value=&quot;100&quot; /&gt;&#xD;&#xA;                    &lt;/xs:restriction&gt;&#xD;&#xA;                  &lt;/xs:simpleType&gt;&#xD;&#xA;                &lt;/xs:element&gt;&#xD;&#xA;                &lt;xs:element name=&quot;Status_x0020_Bot3&quot; msdata:Caption=&quot;&quot; minOccurs=&quot;0&quot;&gt;&#xD;&#xA;                  &lt;xs:simpleType&gt;&#xD;&#xA;                    &lt;xs:restriction base=&quot;xs:string&quot;&gt;&#xD;&#xA;                      &lt;xs:maxLength value=&quot;100&quot; /&gt;&#xD;&#xA;                    &lt;/xs:restriction&gt;&#xD;&#xA;                  &lt;/xs:simpleType&gt;&#xD;&#xA;                &lt;/xs:element&gt;&#xD;&#xA;                &lt;xs:element name=&quot;Comments&quot; msdata:Caption=&quot;&quot; minOccurs=&quot;0&quot;&gt;&#xD;&#xA;                  &lt;xs:simpleType&gt;&#xD;&#xA;                    &lt;xs:restriction base=&quot;xs:string&quot;&gt;&#xD;&#xA;                      &lt;xs:maxLength value=&quot;500&quot; /&gt;&#xD;&#xA;                    &lt;/xs:restriction&gt;&#xD;&#xA;                  &lt;/xs:simpleType&gt;&#xD;&#xA;                &lt;/xs:element&gt;&#xD;&#xA;              &lt;/xs:sequence&gt;&#xD;&#xA;            &lt;/xs:complexType&gt;&#xD;&#xA;          &lt;/xs:element&gt;&#xD;&#xA;        &lt;/xs:choice&gt;&#xD;&#xA;      &lt;/xs:complexType&gt;&#xD;&#xA;    &lt;/xs:element&gt;&#xD;&#xA;  &lt;/xs:schema&gt;&#xD;&#xA;&lt;/NewDataSet&gt;" />
-                <ui:ExcelApplicationScope Password="{x:Null}" DisplayName="Excel Application Scope Output file" sap:VirtualizedContainerService.HintSize="433.6,197.6" sap2010:WorkflowViewState.IdRef="ExcelApplicationScope_2" InstanceCachePeriod="3000" Visible="False" WorkbookPath="[out_OutputFile]">
+                <ui:BuildDataTable DataTable="[dt_OutputFormat]" DisplayName="Build Data Table for output format" sap:VirtualizedContainerService.HintSize="508.8,60" sap2010:WorkflowViewState.IdRef="BuildDataTable_2" TableInfo="&lt;NewDataSet&gt;&#xA;  &lt;xs:schema id=&quot;NewDataSet&quot; xmlns=&quot;&quot; xmlns:xs=&quot;http://www.w3.org/2001/XMLSchema&quot; xmlns:msdata=&quot;urn:schemas-microsoft-com:xml-msdata&quot;&gt;&#xA;    &lt;xs:element name=&quot;NewDataSet&quot; msdata:IsDataSet=&quot;true&quot; msdata:MainDataTable=&quot;TableName&quot; msdata:UseCurrentLocale=&quot;true&quot;&gt;&#xA;      &lt;xs:complexType&gt;&#xA;        &lt;xs:choice minOccurs=&quot;0&quot; maxOccurs=&quot;unbounded&quot;&gt;&#xA;          &lt;xs:element name=&quot;TableName&quot;&gt;&#xA;            &lt;xs:complexType&gt;&#xA;              &lt;xs:sequence&gt;&#xA;                &lt;xs:element name=&quot;Frequency&quot; msdata:Caption=&quot;&quot; minOccurs=&quot;0&quot;&gt;&#xA;                  &lt;xs:simpleType&gt;&#xA;                    &lt;xs:restriction base=&quot;xs:string&quot;&gt;&#xA;                      &lt;xs:maxLength value=&quot;100&quot; /&gt;&#xA;                    &lt;/xs:restriction&gt;&#xA;                  &lt;/xs:simpleType&gt;&#xA;                &lt;/xs:element&gt;&#xA;                &lt;xs:element name=&quot;Invoice_x0020_Number&quot; msdata:Caption=&quot;&quot; minOccurs=&quot;0&quot;&gt;&#xA;                  &lt;xs:simpleType&gt;&#xA;                    &lt;xs:restriction base=&quot;xs:string&quot;&gt;&#xA;                      &lt;xs:maxLength value=&quot;100&quot; /&gt;&#xA;                    &lt;/xs:restriction&gt;&#xA;                  &lt;/xs:simpleType&gt;&#xA;                &lt;/xs:element&gt;&#xA;                &lt;xs:element name=&quot;Bounced_x0020_Status&quot; msdata:Caption=&quot;&quot; minOccurs=&quot;0&quot;&gt;&#xA;                  &lt;xs:simpleType&gt;&#xA;                    &lt;xs:restriction base=&quot;xs:string&quot;&gt;&#xA;                      &lt;xs:maxLength value=&quot;100&quot; /&gt;&#xA;                    &lt;/xs:restriction&gt;&#xA;                  &lt;/xs:simpleType&gt;&#xA;                &lt;/xs:element&gt;&#xA;                &lt;xs:element name=&quot;Email_x0020_Sent_x0020_to_x0020_Customer&quot; msdata:Caption=&quot;&quot; minOccurs=&quot;0&quot;&gt;&#xA;                  &lt;xs:simpleType&gt;&#xA;                    &lt;xs:restriction base=&quot;xs:string&quot;&gt;&#xA;                      &lt;xs:maxLength value=&quot;100&quot; /&gt;&#xA;                    &lt;/xs:restriction&gt;&#xA;                  &lt;/xs:simpleType&gt;&#xA;                &lt;/xs:element&gt;&#xA;                &lt;xs:element name=&quot;Status_x0020_Bot3&quot; msdata:Caption=&quot;&quot; minOccurs=&quot;0&quot;&gt;&#xA;                  &lt;xs:simpleType&gt;&#xA;                    &lt;xs:restriction base=&quot;xs:string&quot;&gt;&#xA;                      &lt;xs:maxLength value=&quot;100&quot; /&gt;&#xA;                    &lt;/xs:restriction&gt;&#xA;                  &lt;/xs:simpleType&gt;&#xA;                &lt;/xs:element&gt;&#xA;                &lt;xs:element name=&quot;Comments&quot; msdata:Caption=&quot;&quot; minOccurs=&quot;0&quot;&gt;&#xA;                  &lt;xs:simpleType&gt;&#xA;                    &lt;xs:restriction base=&quot;xs:string&quot;&gt;&#xA;                      &lt;xs:maxLength value=&quot;500&quot; /&gt;&#xA;                    &lt;/xs:restriction&gt;&#xA;                  &lt;/xs:simpleType&gt;&#xA;                &lt;/xs:element&gt;&#xA;              &lt;/xs:sequence&gt;&#xA;            &lt;/xs:complexType&gt;&#xA;          &lt;/xs:element&gt;&#xA;        &lt;/xs:choice&gt;&#xA;      &lt;/xs:complexType&gt;&#xA;    &lt;/xs:element&gt;&#xA;  &lt;/xs:schema&gt;&#xA;&lt;/NewDataSet&gt;" />
+                <ui:ExcelApplicationScope Password="{x:Null}" DisplayName="Excel Application Scope Output file" sap:VirtualizedContainerService.HintSize="508.8,864" sap2010:WorkflowViewState.IdRef="ExcelApplicationScope_2" InstanceCachePeriod="3000" Visible="False" WorkbookPath="[out_OutputFile]">
                   <ui:ExcelApplicationScope.Body>
                     <ActivityAction x:TypeArguments="ui:WorkbookApplication">
                       <ActivityAction.Argument>
                         <DelegateInArgument x:TypeArguments="ui:WorkbookApplication" Name="ExcelWorkbookScope" />
                       </ActivityAction.Argument>
-                      <ui:ExcelWriteRange AddHeaders="True" DataTable="[dt_OutputFormat]" DisplayName="Write Range required columns" sap:VirtualizedContainerService.HintSize="333.6,88" sap2010:WorkflowViewState.IdRef="ExcelWriteRange_2" SheetName="Sheet1" StartingCell="A1" />
+                      <Sequence DisplayName="Sequence write output file" sap:VirtualizedContainerService.HintSize="475.2,754.4" sap2010:WorkflowViewState.IdRef="Sequence_12">
+                        <Sequence.Variables>
+                          <Variable x:TypeArguments="x:Int32" Default="1" Name="index" />
+                        </Sequence.Variables>
+                        <sap:WorkflowViewStateService.ViewState>
+                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                          </scg:Dictionary>
+                        </sap:WorkflowViewStateService.ViewState>
+                        <ui:ExcelWriteRange AddHeaders="True" DataTable="[dt_OutputFormat]" DisplayName="Write Range required columns" sap:VirtualizedContainerService.HintSize="433.6,88" sap2010:WorkflowViewState.IdRef="ExcelWriteRange_2" SheetName="Sheet1" StartingCell="A1" />
+                        <ui:ForEach x:TypeArguments="x:String" CurrentIndex="{x:Null}" DisplayName="For Each invoice numbers" sap:VirtualizedContainerService.HintSize="433.6,533.6" sap2010:WorkflowViewState.IdRef="ForEach`1_1" Values="[in_InvoiceNumbers]">
+                          <ui:ForEach.Body>
+                            <ActivityAction x:TypeArguments="x:String">
+                              <ActivityAction.Argument>
+                                <DelegateInArgument x:TypeArguments="x:String" Name="invoiceNumber" />
+                              </ActivityAction.Argument>
+                              <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="375.2,408.8" sap2010:WorkflowViewState.IdRef="Sequence_11">
+                                <sap:WorkflowViewStateService.ViewState>
+                                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                  </scg:Dictionary>
+                                </sap:WorkflowViewStateService.ViewState>
+                                <Assign DisplayName="incrementing index" sap:VirtualizedContainerService.HintSize="333.6,60" sap2010:WorkflowViewState.IdRef="Assign_5">
+                                  <Assign.To>
+                                    <OutArgument x:TypeArguments="x:Int32">[index]</OutArgument>
+                                  </Assign.To>
+                                  <Assign.Value>
+                                    <InArgument x:TypeArguments="x:Int32">[index+1]</InArgument>
+                                  </Assign.Value>
+                                </Assign>
+                                <ui:ExcelWriteCell Cell="[&quot;A&quot; + index.ToString]" DisplayName="Write frequency" sap:VirtualizedContainerService.HintSize="333.6,88" sap2010:WorkflowViewState.IdRef="ExcelWriteCell_1" SheetName="Sheet1" Text="[in_ProcessType]" />
+                                <ui:ExcelWriteCell Cell="[&quot;B&quot;+ index.ToString]" DisplayName="Write invoice number" sap:VirtualizedContainerService.HintSize="333.6,88" sap2010:WorkflowViewState.IdRef="ExcelWriteCell_2" SheetName="Sheet1" Text="[invoiceNumber]" />
+                              </Sequence>
+                            </ActivityAction>
+                          </ui:ForEach.Body>
+                        </ui:ForEach>
+                      </Sequence>
                     </ActivityAction>
                   </ui:ExcelApplicationScope.Body>
                 </ui:ExcelApplicationScope>
@@ -149,7 +186,7 @@
         </Sequence>
       </TryCatch.Try>
       <TryCatch.Catches>
-        <Catch x:TypeArguments="s:Exception" sap:VirtualizedContainerService.HintSize="939.2,22.4" sap2010:WorkflowViewState.IdRef="Catch`1_1">
+        <Catch x:TypeArguments="s:Exception" sap:VirtualizedContainerService.HintSize="1014.4,22.4" sap2010:WorkflowViewState.IdRef="Catch`1_1">
           <sap:WorkflowViewStateService.ViewState>
             <scg:Dictionary x:TypeArguments="x:String, x:Object">
               <x:Boolean x:Key="IsExpanded">False</x:Boolean>

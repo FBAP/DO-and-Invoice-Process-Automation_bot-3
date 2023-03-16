@@ -133,10 +133,18 @@
           </Assign>
           <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Invoke GetEmails workflow Daily" sap:VirtualizedContainerService.HintSize="1046.4,113.6" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_1" UnSafe="False" WorkflowFileName="Outlook\GetEmailsBounced.xaml">
             <ui:InvokeWorkflowFile.Arguments>
-              <OutArgument x:TypeArguments="scg:List(snm:MailMessage)" x:Key="out_MailMessage">[ListOfBouncedEmails]</OutArgument>
-              <InArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)" x:Key="in_Config1">[in_Config]</InArgument>
-              <InArgument x:TypeArguments="x:String" x:Key="in_FilterBySubject">[FilterBySubject]</InArgument>
-              <InOutArgument x:TypeArguments="x:String" x:Key="io_ProcessType">[io_ProcessType1]</InOutArgument>
+              <OutArgument x:TypeArguments="scg:List(snm:MailMessage)" x:Key="out_MailMessage">
+                <mva:VisualBasicReference x:TypeArguments="scg:List(snm:MailMessage)" ExpressionText="ListOfBouncedEmails" />
+              </OutArgument>
+              <InArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)" x:Key="in_Config1">
+                <mva:VisualBasicValue x:TypeArguments="scg:Dictionary(x:String, x:Object)" ExpressionText="in_Config" />
+              </InArgument>
+              <InArgument x:TypeArguments="x:String" x:Key="in_FilterBySubject">
+                <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="FilterBySubject" />
+              </InArgument>
+              <InOutArgument x:TypeArguments="x:String" x:Key="io_ProcessType">
+                <mva:VisualBasicReference x:TypeArguments="x:String" ExpressionText="io_ProcessType1" />
+              </InOutArgument>
               <InOutArgument x:TypeArguments="x:Int32" x:Key="io_ProcessCounter1" />
             </ui:InvokeWorkflowFile.Arguments>
           </ui:InvokeWorkflowFile>
